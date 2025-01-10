@@ -1,10 +1,10 @@
 /**
- * AnimateX - Professional Animation Framework
+ * VelocityFX - Professional Animation Framework
  * Version 1.0.0
  * MIT License
  */
 
-class AnimateX {
+class VelocityFX {
     constructor(options = {}) {
         this.options = {
             threshold: 0.1,
@@ -28,15 +28,15 @@ class AnimateX {
         if (this.initialized) return;
         
         try {
-        this.setupAnimationObserver();
-        this.setupHoverAnimations();
-        this.setupClickAnimations();
-        this.setupSequenceAnimations();
-        this.setupParallaxEffects();
-        this.setupStateAnimations();
+            this.setupAnimationObserver();
+            this.setupHoverAnimations();
+            this.setupClickAnimations();
+            this.setupSequenceAnimations();
+            this.setupParallaxEffects();
+            this.setupStateAnimations();
             
             this.initialized = true;
-            this.dispatchEvent('anx:initialized');
+            this.dispatchEvent('vfx:initialized');
         } catch (error) {
             this.handleError('Initialization failed', error);
         }
@@ -51,7 +51,7 @@ class AnimateX {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
                     const element = entry.target;
-                    this.applyAnimation(element, 'anx-animate');
+                    this.applyAnimation(element, 'vfx-animate');
                     observer.unobserve(element);
                 }
             });
@@ -61,7 +61,7 @@ class AnimateX {
         });
 
         this.observers.set('animation', observer);
-        this.observeElements('[anx-animate]', observer);
+        this.observeElements('[vfx-animate]', observer);
     }
 
     /**
@@ -69,32 +69,32 @@ class AnimateX {
      * @private
      */
     setupHoverAnimations() {
-        document.querySelectorAll('[anx-hover]').forEach(element => {
-            const animation = element.getAttribute('anx-hover');
+        document.querySelectorAll('[vfx-hover]').forEach(element => {
+            const animation = element.getAttribute('vfx-hover');
             if (!animation) return;
 
                 const animations = animation.split(' ');
             const enterHandler = () => {
                 requestAnimationFrame(() => {
                     animations.forEach(anim => {
-                            element.classList.add(`anx-${anim}`);
+                            element.classList.add(`vfx-${anim}`);
                     });
-                    this.dispatchEvent('anx:hover:start', { element, animations });
+                    this.dispatchEvent('vfx:hover:start', { element, animations });
                 });
             };
 
             const leaveHandler = () => {
                 requestAnimationFrame(() => {
                     animations.forEach(anim => {
-                        element.classList.remove(`anx-${anim}`);
+                        element.classList.remove(`vfx-${anim}`);
                     });
-                    this.dispatchEvent('anx:hover:end', { element, animations });
+                    this.dispatchEvent('vfx:hover:end', { element, animations });
                 });
             };
 
             element.addEventListener('mouseenter', enterHandler);
             element.addEventListener('mouseleave', leaveHandler);
-            element._anxCleanup = () => {
+            element._vfxCleanup = () => {
                 element.removeEventListener('mouseenter', enterHandler);
                 element.removeEventListener('mouseleave', leaveHandler);
             };
@@ -106,29 +106,29 @@ class AnimateX {
      * @private
      */
     setupClickAnimations() {
-        document.querySelectorAll('[anx-click]').forEach(element => {
-            const animation = element.getAttribute('anx-click');
+        document.querySelectorAll('[vfx-click]').forEach(element => {
+            const animation = element.getAttribute('vfx-click');
             if (!animation) return;
 
             const clickHandler = () => {
                     const animations = animation.split(' ');
                 requestAnimationFrame(() => {
                     animations.forEach(anim => {
-                        const className = `anx-${anim}`;
+                        const className = `vfx-${anim}`;
                         element.classList.add(className);
-                        this.dispatchEvent('anx:click:start', { element, animation: anim });
+                        this.dispatchEvent('vfx:click:start', { element, animation: anim });
                         
                         const duration = parseInt(getComputedStyle(element).animationDuration) || this.options.duration;
                         setTimeout(() => {
                             element.classList.remove(className);
-                            this.dispatchEvent('anx:click:end', { element, animation: anim });
+                            this.dispatchEvent('vfx:click:end', { element, animation: anim });
                         }, duration);
                     });
                 });
             };
 
             element.addEventListener('click', clickHandler);
-            element._anxCleanup = () => {
+            element._vfxCleanup = () => {
                 element.removeEventListener('click', clickHandler);
             };
         });
@@ -139,10 +139,10 @@ class AnimateX {
      * @private
      */
     setupSequenceAnimations() {
-        document.querySelectorAll('[anx-sequence]').forEach(parent => {
+        document.querySelectorAll('[vfx-sequence]').forEach(parent => {
             const children = Array.from(parent.children);
-            const delay = parseInt(parent.getAttribute('anx-sequence-delay') || 100);
-            const stagger = parent.getAttribute('anx-sequence-stagger');
+            const delay = parseInt(parent.getAttribute('vfx-sequence-delay') || 100);
+            const stagger = parent.getAttribute('vfx-sequence-stagger');
             
             children.forEach((child, index) => {
                 let computedDelay;
@@ -152,11 +152,11 @@ class AnimateX {
                     computedDelay = delay * index;
                 }
                 
-                child.style.setProperty('--anx-delay', `${computedDelay}ms`);
-                this.dispatchEvent('anx:sequence:item', { element: child, delay: computedDelay, index });
+                child.style.setProperty('--vfx-delay', `${computedDelay}ms`);
+                this.dispatchEvent('vfx:sequence:item', { element: child, delay: computedDelay, index });
             });
             
-            this.dispatchEvent('anx:sequence:ready', { element: parent, itemCount: children.length });
+            this.dispatchEvent('vfx:sequence:ready', { element: parent, itemCount: children.length });
         });
     }
 
@@ -165,7 +165,7 @@ class AnimateX {
      * @private
      */
     setupParallaxEffects() {
-        const elements = document.querySelectorAll('[anx-parallax]');
+        const elements = document.querySelectorAll('[vfx-parallax]');
         if (!elements.length) return;
 
             let ticking = false;
@@ -173,7 +173,7 @@ class AnimateX {
             elements.forEach(element => {
                 if (!element.isConnected) return;
                 
-                const speed = parseFloat(element.getAttribute('anx-parallax') || 0.5);
+                const speed = parseFloat(element.getAttribute('vfx-parallax') || 0.5);
                             const rect = element.getBoundingClientRect();
                             const scrolled = window.pageYOffset;
                             const position = (scrolled - (rect.top + scrolled - window.innerHeight/2)) * speed;
@@ -198,15 +198,15 @@ class AnimateX {
      * @private
      */
     setupStateAnimations() {
-        document.querySelectorAll('[anx-state]').forEach(element => {
-            const states = element.getAttribute('anx-state').split(' ');
+        document.querySelectorAll('[vfx-state]').forEach(element => {
+            const states = element.getAttribute('vfx-state').split(' ');
             
             states.forEach(state => {
                 const [trigger, animation] = state.split(':');
                 if (!trigger || !animation) return;
 
-                const addClass = () => element.classList.add(`anx-${animation}`);
-                const removeClass = () => element.classList.remove(`anx-${animation}`);
+                const addClass = () => element.classList.add(`vfx-${animation}`);
+                const removeClass = () => element.classList.remove(`vfx-${animation}`);
 
                 switch(trigger) {
                     case 'focus':
@@ -233,7 +233,7 @@ class AnimateX {
     createVisibilityObserver(element, animation) {
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
-                const className = `anx-${animation}`;
+                const className = `vfx-${animation}`;
                 if (entry.isIntersecting) {
                     element.classList.add(className);
                 } else {
@@ -257,11 +257,11 @@ class AnimateX {
         const animations = animation.split(' ');
         animations.forEach(anim => {
             requestAnimationFrame(() => {
-                element.classList.add('anx-animated', `anx-${anim}`);
-                this.dispatchEvent('anx:animate:start', { element, animation: anim });
+                element.classList.add('vfx-animated', `vfx-${anim}`);
+                this.dispatchEvent('vfx:animate:start', { element, animation: anim });
                 
                 element.addEventListener('animationend', () => {
-                    this.dispatchEvent('anx:animate:end', { element, animation: anim });
+                    this.dispatchEvent('vfx:animate:end', { element, animation: anim });
                 }, { once: true });
             });
         });
@@ -288,7 +288,7 @@ class AnimateX {
         document.dispatchEvent(event);
         
         if (this.options.debug) {
-            console.log(`AnimateX Event: ${name}`, detail);
+            console.log(`VelocityFX Event: ${name}`, detail);
         }
     }
 
@@ -297,13 +297,13 @@ class AnimateX {
      * @private
      */
     handleError(message, error) {
-        const event = new CustomEvent('anx:error', {
+        const event = new CustomEvent('vfx:error', {
             detail: { message, error, instance: this }
         });
         document.dispatchEvent(event);
         
         if (this.options.debug) {
-            console.error(`AnimateX Error: ${message}`, error);
+            console.error(`VelocityFX Error: ${message}`, error);
         }
     }
 
@@ -315,32 +315,32 @@ class AnimateX {
         this.observers.forEach(observer => observer.disconnect());
         this.observers.clear();
         
-        document.querySelectorAll('[anx-hover], [anx-click]').forEach(element => {
-            if (element._anxCleanup) {
-                element._anxCleanup();
-                delete element._anxCleanup;
+        document.querySelectorAll('[vfx-hover], [vfx-click]').forEach(element => {
+            if (element._vfxCleanup) {
+                element._vfxCleanup();
+                delete element._vfxCleanup;
             }
         });
         
         this.initialized = false;
-        this.dispatchEvent('anx:destroyed');
+        this.dispatchEvent('vfx:destroyed');
     }
 
     /**
-     * Initialize AnimateX
+     * Initialize VelocityFX
      * @public
      * @static
      */
     static init(options = {}) {
-        return new AnimateX(options);
+        return new VelocityFX(options);
     }
 }
 
 // Auto-initialize when DOM is loaded
 if (typeof window !== 'undefined') {
     window.addEventListener('DOMContentLoaded', () => {
-        window.AnimateX = AnimateX.init();
-});
+        window.VelocityFX = VelocityFX.init();
+    });
 }
 
-export default AnimateX; 
+export default VelocityFX; 
