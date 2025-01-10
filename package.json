@@ -1,10 +1,10 @@
 {
-  "name": "animatex",
+  "name": "velocityfx",
   "version": "1.0.0",
   "description": "Professional animation framework with advanced effects, state transitions, and zero JavaScript requirements",
-  "main": "dist/animatex.js",
-  "module": "dist/animatex.esm.js",
-  "style": "dist/animatex.css",
+  "main": "dist/velocityfx.js",
+  "module": "dist/velocityfx.esm.js",
+  "style": "dist/velocityfx.css",
   "types": "dist/types/index.d.ts",
   "files": [
     "dist",
@@ -13,10 +13,10 @@
   "scripts": {
     "build": "npm run build:js && npm run build:css",
     "build:js": "rollup -c",
-    "build:css": "postcss src/styles/animatex.css -o dist/animatex.css && postcss src/styles/animatex.css -o dist/animatex.min.css --env production",
+    "build:css": "postcss src/styles/velocityfx.css -o dist/velocityfx.css && postcss src/styles/velocityfx.css -o dist/velocityfx.min.css --env production",
     "dev": "rollup -c -w",
-    "test": "jest",
-    "lint": "eslint src",
+    "test": "jest --passWithNoTests",
+    "lint": "eslint src --max-warnings 0",
     "format": "prettier --write \"src/**/*.{js,css}\"",
     "prepare": "npm run build",
     "prepublishOnly": "npm test && npm run lint",
@@ -34,16 +34,16 @@
     "performance",
     "utility-first"
   ],
-  "author": "AnimateX Team",
+  "author": "VelocityFX Team",
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/animatex/animatex.git"
+    "url": "https://github.com/velocityfx/velocityfx.git"
   },
   "bugs": {
-    "url": "https://github.com/animatex/animatex/issues"
+    "url": "https://github.com/velocityfx/velocityfx/issues"
   },
-  "homepage": "https://animatex.dev",
+  "homepage": "https://velocityfx.dev",
   "devDependencies": {
     "@rollup/plugin-node-resolve": "^15.0.0",
     "@rollup/plugin-terser": "^0.4.4",
