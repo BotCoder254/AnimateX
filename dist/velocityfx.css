@@ -1,0 +1,120 @@
+/* VelocityFX Core Styles */
+:root {
+    --vfx-duration: 300ms;
+    --vfx-easing: ease;
+    --vfx-delay: 0ms;
+}
+
+/* Base Animation Class */
+.vfx-animated {
+    animation-duration: var(--vfx-duration);
+    animation-timing-function: var(--vfx-easing);
+    animation-fill-mode: both;
+    animation-delay: var(--vfx-delay);
+}
+
+/* Fade Animations */
+@keyframes vfx-fade-in {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes vfx-fade-out {
+    from { opacity: 1; }
+    to { opacity: 0; }
+}
+
+.vfx-fade-in { animation-name: vfx-fade-in; }
+.vfx-fade-out { animation-name: vfx-fade-out; }
+
+/* Slide Animations */
+@keyframes vfx-slide-up {
+    from {
+        transform: translate3d(0, 20px, 0);
+        opacity: 0;
+    }
+    to {
+        transform: translate3d(0, 0, 0);
+        opacity: 1;
+    }
+}
+
+@keyframes vfx-slide-down {
+    from {
+        transform: translate3d(0, -20px, 0);
+        opacity: 0;
+    }
+    to {
+        transform: translate3d(0, 0, 0);
+        opacity: 1;
+    }
+}
+
+.vfx-slide-up { animation-name: vfx-slide-up; }
+.vfx-slide-down { animation-name: vfx-slide-down; }
+
+/* Scale Animations */
+@keyframes vfx-scale-up {
+    from {
+        transform: scale(0.95);
+        opacity: 0;
+    }
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+@keyframes vfx-scale-down {
+    from {
+        transform: scale(1.05);
+        opacity: 0;
+    }
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+.vfx-scale-up { animation-name: vfx-scale-up; }
+.vfx-scale-down { animation-name: vfx-scale-down; }
+
+/* Utility Classes */
+.vfx-duration-fast { --vfx-duration: 150ms; }
+.vfx-duration-normal { --vfx-duration: 300ms; }
+.vfx-duration-slow { --vfx-duration: 500ms; }
+
+.vfx-easing-linear { --vfx-easing: linear; }
+.vfx-easing-ease { --vfx-easing: ease; }
+.vfx-easing-ease-in { --vfx-easing: ease-in; }
+.vfx-easing-ease-out { --vfx-easing: ease-out; }
+.vfx-easing-ease-in-out { --vfx-easing: ease-in-out; }
+
+/* Sequence Animations */
+[vfx-sequence] > * {
+    opacity: 0;
+    animation: vfx-fade-in var(--vfx-duration) var(--vfx-easing) forwards;
+    animation-delay: var(--vfx-delay);
+}
+
+/* Parallax Effects */
+[vfx-parallax] {
+    transform: translate3d(0, 0, 0);
+    will-change: transform;
+    transition: transform 100ms linear;
+}
+
+/* State Animations */
+[vfx-state] {
+    transition: all var(--vfx-duration) var(--vfx-easing);
+}
+
+/* Hover Animations */
+[vfx-hover] {
+    transition: all var(--vfx-duration) var(--vfx-easing);
+}
+
+/* Click Animations */
+[vfx-click] {
+    transition: all var(--vfx-duration) var(--vfx-easing);
+} 

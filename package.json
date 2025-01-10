@@ -14,7 +14,7 @@
   "scripts": {
     "build": "npm run build:js && npm run build:css",
     "build:js": "rollup -c",
-    "build:css": "postcss src/styles/velocityfx.css -o dist/velocityfx.css && postcss src/styles/velocityfx.css -o dist/velocityfx.min.css --env production",
+    "build:css": "postcss src/styles/velocityfx.css -o dist/velocityfx.css && NODE_ENV=production postcss src/styles/velocityfx.css -o dist/velocityfx.min.css",
     "dev": "rollup -c -w",
     "test": "jest --passWithNoTests",
     "lint": "eslint src --max-warnings 0",
@@ -56,6 +56,7 @@
     "eslint-plugin-node": "^11.1.0",
     "eslint-plugin-promise": "^6.1.1",
     "jest": "^29.7.0",
+    "jest-environment-jsdom": "^29.7.0",
     "postcss": "^8.4.33",
     "postcss-cli": "^11.0.0",
     "prettier": "^3.2.0",

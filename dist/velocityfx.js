@@ -20,7 +20,7 @@
                 debug: false,
                 ...options
             };
-            
+
             this.observers = new Map();
             this.initialized = false;
             this.init();
@@ -32,7 +32,7 @@
          */
         init() {
             if (this.initialized) return;
-            
+
             try {
                 this.setupAnimationObserver();
                 this.setupHoverAnimations();
@@ -40,7 +40,7 @@
                 this.setupSequenceAnimations();
                 this.setupParallaxEffects();
                 this.setupStateAnimations();
-                
+
                 this.initialized = true;
                 this.dispatchEvent('vfx:initialized');
             } catch (error) {
@@ -79,11 +79,11 @@
                 const animation = element.getAttribute('vfx-hover');
                 if (!animation) return;
 
-                    const animations = animation.split(' ');
+                const animations = animation.split(' ');
                 const enterHandler = () => {
                     requestAnimationFrame(() => {
                         animations.forEach(anim => {
-                                element.classList.add(`vfx-${anim}`);
+                            element.classList.add(`vfx-${anim}`);
                         });
                         this.dispatchEvent('vfx:hover:start', { element, animations });
                     });
@@ -117,13 +117,13 @@
                 if (!animation) return;
 
                 const clickHandler = () => {
-                        const animations = animation.split(' ');
+                    const animations = animation.split(' ');
                     requestAnimationFrame(() => {
                         animations.forEach(anim => {
                             const className = `vfx-${anim}`;
                             element.classList.add(className);
                             this.dispatchEvent('vfx:click:start', { element, animation: anim });
-                            
+
                             const duration = parseInt(getComputedStyle(element).animationDuration) || this.options.duration;
                             setTimeout(() => {
                                 element.classList.remove(className);
@@ -149,7 +149,7 @@
                 const children = Array.from(parent.children);
                 const delay = parseInt(parent.getAttribute('vfx-sequence-delay') || 100);
                 const stagger = parent.getAttribute('vfx-sequence-stagger');
-                
+
                 children.forEach((child, index) => {
                     let computedDelay;
                     if (stagger === 'random') {
@@ -157,11 +157,11 @@
                     } else {
                         computedDelay = delay * index;
                     }
-                    
+
                     child.style.setProperty('--vfx-delay', `${computedDelay}ms`);
                     this.dispatchEvent('vfx:sequence:item', { element: child, delay: computedDelay, index });
                 });
-                
+
                 this.dispatchEvent('vfx:sequence:ready', { element: parent, itemCount: children.length });
             });
         }
@@ -174,16 +174,16 @@
             const elements = document.querySelectorAll('[vfx-parallax]');
             if (!elements.length) return;
 
-                let ticking = false;
+            let ticking = false;
             const update = () => {
                 elements.forEach(element => {
                     if (!element.isConnected) return;
-                    
+
                     const speed = parseFloat(element.getAttribute('vfx-parallax') || 0.5);
-                                const rect = element.getBoundingClientRect();
-                                const scrolled = window.pageYOffset;
-                                const position = (scrolled - (rect.top + scrolled - window.innerHeight/2)) * speed;
-                                
+                    const rect = element.getBoundingClientRect();
+                    const scrolled = window.pageYOffset;
+                    const position = (scrolled - (rect.top + scrolled - window.innerHeight / 2)) * speed;
+
                     requestAnimationFrame(() => {
                         element.style.transform = `translate3d(0, ${position}px, 0)`;
                     });
@@ -206,7 +206,7 @@
         setupStateAnimations() {
             document.querySelectorAll('[vfx-state]').forEach(element => {
                 const states = element.getAttribute('vfx-state').split(' ');
-                
+
                 states.forEach(state => {
                     const [trigger, animation] = state.split(':');
                     if (!trigger || !animation) return;
@@ -214,19 +214,19 @@
                     const addClass = () => element.classList.add(`vfx-${animation}`);
                     const removeClass = () => element.classList.remove(`vfx-${animation}`);
 
-                    switch(trigger) {
-                        case 'focus':
-                            element.addEventListener('focus', addClass);
-                            element.addEventListener('blur', removeClass);
-                            break;
-                        case 'active':
-                            element.addEventListener('mousedown', addClass);
-                            element.addEventListener('mouseup', removeClass);
-                            element.addEventListener('mouseleave', removeClass);
-                            break;
-                        case 'visible':
-                            this.createVisibilityObserver(element, animation);
-                            break;
+                    switch (trigger) {
+                    case 'focus':
+                        element.addEventListener('focus', addClass);
+                        element.addEventListener('blur', removeClass);
+                        break;
+                    case 'active':
+                        element.addEventListener('mousedown', addClass);
+                        element.addEventListener('mouseup', removeClass);
+                        element.addEventListener('mouseleave', removeClass);
+                        break;
+                    case 'visible':
+                        this.createVisibilityObserver(element, animation);
+                        break;
                     }
                 });
             });
@@ -265,7 +265,7 @@
                 requestAnimationFrame(() => {
                     element.classList.add('vfx-animated', `vfx-${anim}`);
                     this.dispatchEvent('vfx:animate:start', { element, animation: anim });
-                    
+
                     element.addEventListener('animationend', () => {
                         this.dispatchEvent('vfx:animate:end', { element, animation: anim });
                     }, { once: true });
@@ -288,11 +288,11 @@
          * @private
          */
         dispatchEvent(name, detail = {}) {
-            const event = new CustomEvent(name, { 
+            const event = new CustomEvent(name, {
                 detail: { ...detail, instance: this }
             });
             document.dispatchEvent(event);
-            
+
             if (this.options.debug) {
                 console.log(`VelocityFX Event: ${name}`, detail);
             }
@@ -307,7 +307,7 @@
                 detail: { message, error, instance: this }
             });
             document.dispatchEvent(event);
-            
+
             if (this.options.debug) {
                 console.error(`VelocityFX Error: ${message}`, error);
             }
@@ -320,14 +320,14 @@
         destroy() {
             this.observers.forEach(observer => observer.disconnect());
             this.observers.clear();
-            
+
             document.querySelectorAll('[vfx-hover], [vfx-click]').forEach(element => {
                 if (element._vfxCleanup) {
                     element._vfxCleanup();
                     delete element._vfxCleanup;
                 }
             });
-            
+
             this.initialized = false;
             this.dispatchEvent('vfx:destroyed');
         }
