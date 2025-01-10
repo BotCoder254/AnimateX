@@ -1,42 +1,25 @@
 {
   "name": "velocityfx-website",
   "version": "1.0.0",
-  "description": "Official website for the VelocityFX animation framework",
   "private": true,
+  "type": "module",
   "scripts": {
     "dev": "vite",
-    "prebuild": "node scripts/inject-components.js",
     "build": "vite build",
     "preview": "vite preview",
-    "lint": "eslint . --ext .js",
-    "format": "prettier --write ."
+    "lint": "eslint . --ext .js,.jsx,.ts,.tsx",
+    "format": "prettier --write \"**/*.{js,jsx,ts,tsx,css,html}\""
   },
   "dependencies": {
-    "velocityfx": "^1.0.0"
+    "velocityfx": "file:.."
   },
   "devDependencies": {
-    "@tailwindcss/aspect-ratio": "^0.4.2",
-    "@tailwindcss/forms": "^0.5.3",
-    "@tailwindcss/typography": "^0.5.9",
-    "autoprefixer": "^10.4.14",
-    "cheerio": "^1.0.0-rc.12",
-    "cssnano": "^6.0.1",
-    "eslint": "^8.44.0",
-    "eslint-config-prettier": "^8.8.0",
-    "fs-extra": "^11.1.1",
-    "glob": "^10.3.3",
-    "postcss": "^8.4.24",
-    "prettier": "^2.8.8",
-    "tailwindcss": "^3.3.2",
-    "terser": "^5.18.2",
-    "vite": "^4.3.9"
-  },
-  "browserslist": [
-    ">0.2%",
-    "not dead",
-    "not op_mini all"
-  ],
-  "engines": {
-    "node": ">=16.0.0"
+    "autoprefixer": "^10.4.16",
+    "eslint": "^8.56.0",
+    "eslint-config-prettier": "^9.1.0",
+    "postcss": "^8.4.33",
+    "prettier": "^3.2.0",
+    "tailwindcss": "^3.4.1",
+    "vite": "^5.0.0"
   }
 } 

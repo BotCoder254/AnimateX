@@ -1,12 +1,14 @@
 {
   "name": "velocityfx",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Professional animation framework with advanced effects, state transitions, and zero JavaScript requirements",
   "type": "module",
   "main": "dist/velocityfx.js",
   "module": "dist/velocityfx.esm.js",
   "style": "dist/velocityfx.css",
   "types": "dist/types/index.d.ts",
+  "unpkg": "dist/velocityfx.min.js",
+  "jsdelivr": "dist/velocityfx.min.js",
   "files": [
     "dist",
     "src"
@@ -39,7 +41,7 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/velocityfx/velocityfx.git"
+    "url": "git+https://github.com/velocityfx/velocityfx.git"
   },
   "bugs": {
     "url": "https://github.com/velocityfx/velocityfx/issues"
@@ -69,5 +71,13 @@
     "not dead",
     "not op_mini all"
   ],
-  "sideEffects": false
+  "sideEffects": false,
+  "cdn": {
+    "unpkg": "https://unpkg.com/velocityfx@latest/dist/velocityfx.min.js",
+    "jsdelivr": "https://cdn.jsdelivr.net/npm/velocityfx@latest/dist/velocityfx.min.js",
+    "css": {
+      "unpkg": "https://unpkg.com/velocityfx@latest/dist/velocityfx.min.css",
+      "jsdelivr": "https://cdn.jsdelivr.net/npm/velocityfx@latest/dist/velocityfx.min.css"
+    }
+  }
 }
