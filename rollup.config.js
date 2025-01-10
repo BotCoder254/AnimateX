@@ -2,23 +2,23 @@ import resolve from '@rollup/plugin-node-resolve';
 import terser from '@rollup/plugin-terser';
 
 export default {
-    input: 'src/animatex.js',
+    input: 'src/velocityfx.js',
     output: [
         {
-            file: 'dist/animatex.min.js',
+            file: 'dist/velocityfx.min.js',
             format: 'umd',
-            name: 'AnimateX',
+            name: 'VelocityFX',
             plugins: [terser()],
             sourcemap: true
         },
         {
-            file: 'dist/animatex.js',
+            file: 'dist/velocityfx.js',
             format: 'umd',
-            name: 'AnimateX',
+            name: 'VelocityFX',
             sourcemap: true
         },
         {
-            file: 'dist/animatex.esm.js',
+            file: 'dist/velocityfx.esm.js',
             format: 'es',
             sourcemap: true
         }

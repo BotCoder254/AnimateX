@@ -24,12 +24,18 @@ jobs:
       run: |
         npm ci
         npm run clean || true
+      env:
+        NODE_OPTIONS: --experimental-vm-modules
 
     - name: Lint
       run: npm run lint || echo "Linting skipped"
+      env:
+        NODE_OPTIONS: --experimental-vm-modules
 
     - name: Build Framework
       run: npm run build
+      env:
+        NODE_OPTIONS: --experimental-vm-modules
 
     # Website Build
     - name: Install Website Dependencies
@@ -44,6 +50,8 @@ jobs:
 
     - name: Run Tests
       run: npm test || echo "No tests to run"
+      env:
+        NODE_OPTIONS: --experimental-vm-modules
 
     - name: Deploy Website to GitHub Pages
       if: github.ref == 'refs/heads/main'
@@ -71,9 +79,13 @@ jobs:
       run: |
         npm ci
         npm run clean || true
+      env:
+        NODE_OPTIONS: --experimental-vm-modules
 
     - name: Build
       run: npm run build
+      env:
+        NODE_OPTIONS: --experimental-vm-modules
 
     - name: Publish to NPM
       if: success()
@@ -84,4 +96,5 @@ jobs:
           echo "Current version is already published"
         fi
       env:
-        NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }} 
+        NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+        NODE_OPTIONS: --experimental-vm-modules 
