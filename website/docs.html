@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Documentation - VelocityFX</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@3.3.2/dist/tailwind.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/velocityfx@latest/dist/velocityfx.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="./styles/website.css">
+    <link rel="icon" type="image/svg+xml" href="./assets/logo.svg">
+    <link rel="preconnect" href="https://cdn.jsdelivr.net">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <meta name="description" content="Complete documentation for VelocityFX - the professional animation framework for modern web applications">
+    <meta name="keywords" content="VelocityFX, animation, framework, documentation, web animations">
+    <meta property="og:title" content="Documentation - VelocityFX">
+    <meta property="og:description" content="Complete documentation for VelocityFX - the professional animation framework for modern web applications">
+    <meta property="og:image" content="https://velocityfx.dev/og-image.png">
+    <meta property="og:url" content="https://velocityfx.dev/docs">
+</head>
+<body class="bg-gray-50">
+    <!-- Navigation -->
+    <nav class="fixed w-full bg-white shadow-sm z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16">
+                <div class="flex items-center">
+                    <a href="/" class="flex items-center space-x-2">
+                        <img src="./assets/logo.svg" alt="VelocityFX Logo" class="h-8 w-8 anx-spin">
+                        <span class="text-xl font-bold text-gray-900">VelocityFX</span>
+                    </a>
+                </div>
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="/#features" class="anx-link-nav text-gray-600 hover:text-gray-900">Features</a>
+                    <a href="/examples.html" class="anx-link-nav text-gray-600 hover:text-gray-900">Examples</a>
+                    <a href="/docs.html" class="anx-link-nav text-indigo-600">Documentation</a>
+                    <a href="https://github.com/velocityfx/velocityfx" 
+                       class="anx-btn-primary px-4 py-2 rounded-lg text-white bg-indigo-600 hover:bg-indigo-700">
+                        GitHub
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Documentation Header -->
+    <section class="pt-32 pb-12 bg-gradient-to-r from-indigo-600 to-purple-600">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center">
+                <h1 class="text-4xl font-bold text-white mb-4 anx-fade-down">
+                    Documentation
+                </h1>
+                <p class="text-xl text-indigo-100 anx-fade-up anx-delay-200">
+                    Everything you need to know about VelocityFX
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Documentation Content -->
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+        <div class="grid grid-cols-12 gap-8">
+            <!-- Sidebar -->
+            <div class="col-span-12 md:col-span-3">
+                <div class="sticky top-24 space-y-6">
+                    <div class="bg-white rounded-lg shadow p-6">
+                        <h3 class="text-lg font-semibold mb-4">Contents</h3>
+                        <ul class="space-y-2">
+                            <li><a href="#getting-started" class="text-gray-600 hover:text-indigo-600">Getting Started</a></li>
+                            <li><a href="#installation" class="text-gray-600 hover:text-indigo-600">Installation</a></li>
+                            <li><a href="#basic-usage" class="text-gray-600 hover:text-indigo-600">Basic Usage</a></li>
+                            <li><a href="#animations" class="text-gray-600 hover:text-indigo-600">Animations</a></li>
+                            <li><a href="#triggers" class="text-gray-600 hover:text-indigo-600">Triggers</a></li>
+                            <li><a href="#responsive" class="text-gray-600 hover:text-indigo-600">Responsive Design</a></li>
+                            <li><a href="#accessibility" class="text-gray-600 hover:text-indigo-600">Accessibility</a></li>
+                            <li><a href="#api" class="text-gray-600 hover:text-indigo-600">API Reference</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Main Content -->
+            <div class="col-span-12 md:col-span-9 space-y-12">
+                <!-- Getting Started -->
+                <section id="getting-started" class="anx-fade-up">
+                    <h2 class="text-3xl font-bold text-gray-900 mb-6">Getting Started</h2>
+                    <p class="text-gray-600 mb-4">
+                        VelocityFX is a lightweight animation framework that allows you to add beautiful animations
+                        to your web applications without writing JavaScript code.
+                    </p>
+                    <div class="bg-white rounded-lg shadow-sm p-6 space-y-4">
+                        <h3 class="text-xl font-semibold">Quick Start</h3>
+                        <div class="bg-gray-800 rounded p-4">
+                            <code class="text-green-400">npm install velocityfx</code>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Installation -->
+                <section id="installation" class="anx-fade-up">
+                    <h2 class="text-3xl font-bold text-gray-900 mb-6">Installation</h2>
+                    <div class="bg-white rounded-lg shadow-sm p-6 space-y-4">
+                        <h3 class="text-xl font-semibold">NPM</h3>
+                        <div class="bg-gray-800 rounded p-4">
+                            <code class="text-green-400">npm install velocityfx</code>
+                        </div>
+
+                        <h3 class="text-xl font-semibold mt-6">CDN</h3>
+                        <div class="bg-gray-800 rounded p-4">
+                            <code class="text-blue-400">
+                                &lt;link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/velocityfx/dist/velocityfx.min.css"&gt;<br>
+                                &lt;script src="https://cdn.jsdelivr.net/npm/velocityfx/dist/velocityfx.min.js"&gt;&lt;/script&gt;
+                            </code>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Basic Usage -->
+                <section id="basic-usage" class="anx-fade-up">
+                    <h2 class="text-3xl font-bold text-gray-900 mb-6">Basic Usage</h2>
+                    <div class="bg-white rounded-lg shadow-sm p-6 space-y-4">
+                        <p class="text-gray-600">Add animation classes to your HTML elements:</p>
+                        <div class="bg-gray-800 rounded p-4">
+                            <code class="text-purple-400">
+                                &lt;div class="anx-fade-in"&gt;Fade In&lt;/div&gt;<br>
+                                &lt;div class="anx-slide-up"&gt;Slide Up&lt;/div&gt;<br>
+                                &lt;div class="anx-zoom-in"&gt;Zoom In&lt;/div&gt;
+                            </code>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Animations -->
+                <section id="animations" class="anx-fade-up">
+                    <h2 class="text-3xl font-bold text-gray-900 mb-6">Animations</h2>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <!-- Entry Animations -->
+                        <div class="bg-white rounded-lg shadow-sm p-6">
+                            <h3 class="text-xl font-semibold mb-4">Entry Animations</h3>
+                            <ul class="space-y-2">
+                                <li class="anx-fade-in">.anx-fade-in</li>
+                                <li class="anx-slide-up">.anx-slide-up</li>
+                                <li class="anx-slide-down">.anx-slide-down</li>
+                                <li class="anx-zoom-in">.anx-zoom-in</li>
+                                <li class="anx-spin-in">.anx-spin-in</li>
+                            </ul>
+                        </div>
+
+                        <!-- Hover Animations -->
+                        <div class="bg-white rounded-lg shadow-sm p-6">
+                            <h3 class="text-xl font-semibold mb-4">Hover Animations</h3>
+                            <ul class="space-y-2">
+                                <li class="anx-hover-scale">.anx-hover-scale</li>
+                                <li class="anx-hover-lift">.anx-hover-lift</li>
+                                <li class="anx-hover-glow">.anx-hover-glow</li>
+                                <li class="anx-hover-shake">.anx-hover-shake</li>
+                                <li class="anx-hover-pulse">.anx-hover-pulse</li>
+                            </ul>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Triggers -->
+                <section id="triggers" class="anx-fade-up">
+                    <h2 class="text-3xl font-bold text-gray-900 mb-6">Triggers</h2>
+                    <div class="bg-white rounded-lg shadow-sm p-6 space-y-4">
+                        <h3 class="text-xl font-semibold">Scroll Triggers</h3>
+                        <div class="bg-gray-800 rounded p-4">
+                            <code class="text-purple-400">
+                                &lt;div data-anx-scroll class="anx-fade-in"&gt;<br>
+                                &nbsp;&nbsp;Appears on scroll<br>
+                                &lt;/div&gt;
+                            </code>
+                        </div>
+
+                        <h3 class="text-xl font-semibold mt-6">Click Triggers</h3>
+                        <div class="bg-gray-800 rounded p-4">
+                            <code class="text-purple-400">
+                                &lt;button data-anx-click="shake"&gt;<br>
+                                &nbsp;&nbsp;Click me!<br>
+                                &lt;/button&gt;
+                            </code>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Responsive Design -->
+                <section id="responsive" class="anx-fade-up">
+                    <h2 class="text-3xl font-bold text-gray-900 mb-6">Responsive Design</h2>
+                    <div class="bg-white rounded-lg shadow-sm p-6 space-y-4">
+                        <p class="text-gray-600">Use responsive prefixes to control animations at different breakpoints:</p>
+                        <div class="bg-gray-800 rounded p-4">
+                            <code class="text-purple-400">
+                                &lt;div class="sm:anx-fade-in md:anx-slide-up lg:anx-zoom-in"&gt;<br>
+                                &nbsp;&nbsp;Responsive animations<br>
+                                &lt;/div&gt;
+                            </code>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Accessibility -->
+                <section id="accessibility" class="anx-fade-up">
+                    <h2 class="text-3xl font-bold text-gray-900 mb-6">Accessibility</h2>
+                    <div class="bg-white rounded-lg shadow-sm p-6 space-y-4">
+                        <p class="text-gray-600">VelocityFX respects user preferences for reduced motion:</p>
+                        <div class="bg-gray-800 rounded p-4">
+                            <code class="text-purple-400">
+                                /* Automatically handles prefers-reduced-motion */<br>
+                                &lt;div class="anx-accessible"&gt;<br>
+                                &nbsp;&nbsp;Motion-safe animations<br>
+                                &lt;/div&gt;
+                            </code>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- API Reference -->
+                <section id="api" class="anx-fade-up">
+                    <h2 class="text-3xl font-bold text-gray-900 mb-6">API Reference</h2>
+                    <div class="bg-white rounded-lg shadow-sm p-6 space-y-4">
+                        <h3 class="text-xl font-semibold">JavaScript API</h3>
+                        <div class="bg-gray-800 rounded p-4">
+                            <code class="text-blue-400">
+                                const vfx = new VelocityFX({<br>
+                                &nbsp;&nbsp;observeScroll: true,<br>
+                                &nbsp;&nbsp;defaultDuration: 400,<br>
+                                &nbsp;&nbsp;defaultEasing: 'ease-out'<br>
+                                });
+                            </code>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-12 mt-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">VelocityFX</h4>
+                    <p class="text-gray-400">Professional animation framework for modern web applications.</p>
+                </div>
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">Resources</h4>
+                    <ul class="space-y-2">
+                        <li><a href="/docs.html" class="text-gray-400 hover:text-white">Documentation</a></li>
+                        <li><a href="/examples.html" class="text-gray-400 hover:text-white">Examples</a></li>
+                        <li><a href="/api.html" class="text-gray-400 hover:text-white">API Reference</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">Community</h4>
+                    <ul class="space-y-2">
+                        <li><a href="https://github.com/velocityfx/velocityfx" class="text-gray-400 hover:text-white">GitHub</a></li>
+                        <li><a href="https://discord.gg/velocityfx" class="text-gray-400 hover:text-white">Discord</a></li>
+                        <li><a href="https://twitter.com/velocityfx" class="text-gray-400 hover:text-white">Twitter</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">Legal</h4>
+                    <ul class="space-y-2">
+                        <li><a href="/privacy.html" class="text-gray-400 hover:text-white">Privacy Policy</a></li>
+                        <li><a href="/terms.html" class="text-gray-400 hover:text-white">Terms of Service</a></li>
+                        <li><a href="/license.html" class="text-gray-400 hover:text-white">License</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="mt-8 pt-8 border-t border-gray-800 text-center text-gray-400">
+                <p>&copy; 2023 VelocityFX. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/velocityfx@latest/dist/velocityfx.min.js"></script>
+    <script src="./js/website.js"></script>
+    <script>
+        // Initialize VelocityFX
+        const vfx = new VelocityFX({
+            observeScroll: true,
+            defaultDuration: 400,
+            defaultEasing: 'ease-out'
+        });
+    </script>
+</body>
+</html> 

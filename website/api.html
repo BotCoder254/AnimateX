@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>API Reference - VelocityFX</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@3.3.2/dist/tailwind.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/velocityfx@latest/dist/velocityfx.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="./styles/website.css">
+    <link rel="icon" type="image/svg+xml" href="./assets/logo.svg">
+    <link rel="preconnect" href="https://cdn.jsdelivr.net">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <meta name="description" content="Complete API reference for VelocityFX - learn how to use all features and methods">
+    <meta name="keywords" content="VelocityFX API, animation framework, documentation, web animations">
+    <meta property="og:title" content="API Reference - VelocityFX">
+    <meta property="og:description" content="Complete API reference for VelocityFX - learn how to use all features and methods">
+    <meta property="og:image" content="https://velocityfx.dev/og-image.png">
+    <meta property="og:url" content="https://velocityfx.dev/api">
+</head>
+<body class="bg-gray-50">
+    <!-- Navigation -->
+    <nav class="fixed w-full bg-white shadow-sm z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16">
+                <div class="flex items-center">
+                    <a href="/" class="flex items-center space-x-2">
+                        <img src="./assets/logo.svg" alt="VelocityFX Logo" class="h-8 w-8 anx-spin">
+                        <span class="text-xl font-bold text-gray-900">VelocityFX</span>
+                    </a>
+                </div>
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="/#features" class="anx-link-nav text-gray-600 hover:text-gray-900">Features</a>
+                    <a href="/examples.html" class="anx-link-nav text-gray-600 hover:text-gray-900">Examples</a>
+                    <a href="/docs.html" class="anx-link-nav text-gray-600 hover:text-gray-900">Documentation</a>
+                    <a href="https://github.com/velocityfx/velocityfx" 
+                       class="anx-btn-primary px-4 py-2 rounded-lg text-white bg-indigo-600 hover:bg-indigo-700">
+                        GitHub
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- API Header -->
+    <section class="pt-32 pb-12 bg-gradient-to-r from-indigo-600 to-purple-600">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center">
+                <h1 class="text-4xl font-bold text-white mb-4 anx-fade-down">
+                    API Reference
+                </h1>
+                <p class="text-xl text-indigo-100 anx-fade-up anx-delay-200">
+                    Complete reference for VelocityFX's JavaScript API
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- API Content -->
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+        <div class="grid grid-cols-12 gap-8">
+            <!-- Sidebar -->
+            <div class="col-span-12 md:col-span-3">
+                <div class="sticky top-24 space-y-6">
+                    <div class="bg-white rounded-lg shadow p-6">
+                        <h3 class="text-lg font-semibold mb-4">Contents</h3>
+                        <ul class="space-y-2">
+                            <li><a href="#initialization" class="text-gray-600 hover:text-indigo-600">Initialization</a></li>
+                            <li><a href="#configuration" class="text-gray-600 hover:text-indigo-600">Configuration</a></li>
+                            <li><a href="#methods" class="text-gray-600 hover:text-indigo-600">Methods</a></li>
+                            <li><a href="#events" class="text-gray-600 hover:text-indigo-600">Events</a></li>
+                            <li><a href="#utilities" class="text-gray-600 hover:text-indigo-600">Utilities</a></li>
+                            <li><a href="#types" class="text-gray-600 hover:text-indigo-600">Types</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Main Content -->
+            <div class="col-span-12 md:col-span-9 space-y-12">
+                <!-- Initialization -->
+                <section id="initialization" class="anx-fade-up">
+                    <h2 class="text-3xl font-bold text-gray-900 mb-6">Initialization</h2>
+                    <div class="bg-white rounded-lg shadow-sm p-6 space-y-4">
+                        <p class="text-gray-600">Create a new instance of VelocityFX:</p>
+                        <div class="bg-gray-800 rounded p-4">
+                            <code class="text-blue-400">
+                                const vfx = new VelocityFX({<br>
+                                &nbsp;&nbsp;observeScroll: true,<br>
+                                &nbsp;&nbsp;defaultDuration: 400,<br>
+                                &nbsp;&nbsp;defaultEasing: 'ease-out'<br>
+                                });
+                            </code>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Configuration -->
+                <section id="configuration" class="anx-fade-up">
+                    <h2 class="text-3xl font-bold text-gray-900 mb-6">Configuration</h2>
+                    <div class="bg-white rounded-lg shadow-sm p-6">
+                        <table class="min-w-full">
+                            <thead>
+                                <tr>
+                                    <th class="text-left text-gray-900 font-semibold">Option</th>
+                                    <th class="text-left text-gray-900 font-semibold">Type</th>
+                                    <th class="text-left text-gray-900 font-semibold">Default</th>
+                                    <th class="text-left text-gray-900 font-semibold">Description</th>
+                                </tr>
+                            </thead>
+                            <tbody class="divide-y divide-gray-200">
+                                <tr>
+                                    <td class="py-4">observeScroll</td>
+                                    <td class="py-4 text-gray-600">boolean</td>
+                                    <td class="py-4 text-gray-600">true</td>
+                                    <td class="py-4 text-gray-600">Enable scroll-based animations</td>
+                                </tr>
+                                <tr>
+                                    <td class="py-4">defaultDuration</td>
+                                    <td class="py-4 text-gray-600">number</td>
+                                    <td class="py-4 text-gray-600">400</td>
+                                    <td class="py-4 text-gray-600">Default animation duration in milliseconds</td>
+                                </tr>
+                                <tr>
+                                    <td class="py-4">defaultEasing</td>
+                                    <td class="py-4 text-gray-600">string</td>
+                                    <td class="py-4 text-gray-600">'ease-out'</td>
+                                    <td class="py-4 text-gray-600">Default easing function</td>
+                                </tr>
+                                <tr>
+                                    <td class="py-4">threshold</td>
+                                    <td class="py-4 text-gray-600">number</td>
+                                    <td class="py-4 text-gray-600">0.2</td>
+                                    <td class="py-4 text-gray-600">Intersection observer threshold</td>
+                                </tr>
+                                <tr>
+                                    <td class="py-4">root</td>
+                                    <td class="py-4 text-gray-600">Element | null</td>
+                                    <td class="py-4 text-gray-600">null</td>
+                                    <td class="py-4 text-gray-600">Intersection observer root element</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </section>
+
+                <!-- Methods -->
+                <section id="methods" class="anx-fade-up">
+                    <h2 class="text-3xl font-bold text-gray-900 mb-6">Methods</h2>
+                    <div class="space-y-6">
+                        <!-- animate -->
+                        <div class="bg-white rounded-lg shadow-sm p-6">
+                            <h3 class="text-xl font-semibold mb-4">animate(element, options)</h3>
+                            <p class="text-gray-600 mb-4">Animate an element with custom options</p>
+                            <div class="bg-gray-800 rounded p-4">
+                                <code class="text-blue-400">
+                                    vfx.animate(element, {<br>
+                                    &nbsp;&nbsp;animation: 'fade-in',<br>
+                                    &nbsp;&nbsp;duration: 500,<br>
+                                    &nbsp;&nbsp;easing: 'ease-in-out'<br>
+                                    });
+                                </code>
+                            </div>
+                        </div>
+
+                        <!-- sequence -->
+                        <div class="bg-white rounded-lg shadow-sm p-6">
+                            <h3 class="text-xl font-semibold mb-4">sequence(elements, options)</h3>
+                            <p class="text-gray-600 mb-4">Animate multiple elements in sequence</p>
+                            <div class="bg-gray-800 rounded p-4">
+                                <code class="text-blue-400">
+                                    vfx.sequence(elements, {<br>
+                                    &nbsp;&nbsp;delay: 200,<br>
+                                    &nbsp;&nbsp;animation: 'fade-up'<br>
+                                    });
+                                </code>
+                            </div>
+                        </div>
+
+                        <!-- observe -->
+                        <div class="bg-white rounded-lg shadow-sm p-6">
+                            <h3 class="text-xl font-semibold mb-4">observe(element, options)</h3>
+                            <p class="text-gray-600 mb-4">Observe an element for scroll-based animations</p>
+                            <div class="bg-gray-800 rounded p-4">
+                                <code class="text-blue-400">
+                                    vfx.observe(element, {<br>
+                                    &nbsp;&nbsp;animation: 'fade-in',<br>
+                                    &nbsp;&nbsp;threshold: 0.5<br>
+                                    });
+                                </code>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Events -->
+                <section id="events" class="anx-fade-up">
+                    <h2 class="text-3xl font-bold text-gray-900 mb-6">Events</h2>
+                    <div class="bg-white rounded-lg shadow-sm p-6">
+                        <table class="min-w-full">
+                            <thead>
+                                <tr>
+                                    <th class="text-left text-gray-900 font-semibold">Event</th>
+                                    <th class="text-left text-gray-900 font-semibold">Description</th>
+                                    <th class="text-left text-gray-900 font-semibold">Example</th>
+                                </tr>
+                            </thead>
+                            <tbody class="divide-y divide-gray-200">
+                                <tr>
+                                    <td class="py-4">anx:start</td>
+                                    <td class="py-4 text-gray-600">Fired when animation starts</td>
+                                    <td class="py-4">
+                                        <code class="text-sm bg-gray-100 p-1 rounded">element.addEventListener('anx:start', handler)</code>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="py-4">anx:end</td>
+                                    <td class="py-4 text-gray-600">Fired when animation ends</td>
+                                    <td class="py-4">
+                                        <code class="text-sm bg-gray-100 p-1 rounded">element.addEventListener('anx:end', handler)</code>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="py-4">anx:cancel</td>
+                                    <td class="py-4 text-gray-600">Fired when animation is cancelled</td>
+                                    <td class="py-4">
+                                        <code class="text-sm bg-gray-100 p-1 rounded">element.addEventListener('anx:cancel', handler)</code>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </section>
+
+                <!-- Utilities -->
+                <section id="utilities" class="anx-fade-up">
+                    <h2 class="text-3xl font-bold text-gray-900 mb-6">Utilities</h2>
+                    <div class="bg-white rounded-lg shadow-sm p-6">
+                        <div class="space-y-6">
+                            <div>
+                                <h3 class="text-xl font-semibold mb-2">isReducedMotion()</h3>
+                                <p class="text-gray-600">Check if reduced motion is preferred</p>
+                                <code class="block mt-2 text-sm bg-gray-100 p-2 rounded">
+                                    if (vfx.isReducedMotion()) {<br>
+                                    &nbsp;&nbsp;// Handle reduced motion preference<br>
+                                    }
+                                </code>
+                            </div>
+
+                            <div>
+                                <h3 class="text-xl font-semibold mb-2">getDefaultOptions()</h3>
+                                <p class="text-gray-600">Get current default options</p>
+                                <code class="block mt-2 text-sm bg-gray-100 p-2 rounded">
+                                    const options = vfx.getDefaultOptions();
+                                </code>
+                            </div>
+
+                            <div>
+                                <h3 class="text-xl font-semibold mb-2">setDefaultOptions(options)</h3>
+                                <p class="text-gray-600">Update default options</p>
+                                <code class="block mt-2 text-sm bg-gray-100 p-2 rounded">
+                                    vfx.setDefaultOptions({<br>
+                                    &nbsp;&nbsp;duration: 300,<br>
+                                    &nbsp;&nbsp;easing: 'ease-in'<br>
+                                    });
+                                </code>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Types -->
+                <section id="types" class="anx-fade-up">
+                    <h2 class="text-3xl font-bold text-gray-900 mb-6">Types</h2>
+                    <div class="bg-white rounded-lg shadow-sm p-6">
+                        <div class="space-y-6">
+                            <div>
+                                <h3 class="text-xl font-semibold mb-2">AnimationOptions</h3>
+                                <code class="block text-sm bg-gray-100 p-2 rounded">
+                                    interface AnimationOptions {<br>
+                                    &nbsp;&nbsp;animation: string;<br>
+                                    &nbsp;&nbsp;duration?: number;<br>
+                                    &nbsp;&nbsp;easing?: string;<br>
+                                    &nbsp;&nbsp;delay?: number;<br>
+                                    }
+                                </code>
+                            </div>
+
+                            <div>
+                                <h3 class="text-xl font-semibold mb-2">ObserverOptions</h3>
+                                <code class="block text-sm bg-gray-100 p-2 rounded">
+                                    interface ObserverOptions {<br>
+                                    &nbsp;&nbsp;threshold?: number;<br>
+                                    &nbsp;&nbsp;root?: Element | null;<br>
+                                    &nbsp;&nbsp;rootMargin?: string;<br>
+                                    }
+                                </code>
+                            </div>
+
+                            <div>
+                                <h3 class="text-xl font-semibold mb-2">SequenceOptions</h3>
+                                <code class="block text-sm bg-gray-100 p-2 rounded">
+                                    interface SequenceOptions {<br>
+                                    &nbsp;&nbsp;delay: number;<br>
+                                    &nbsp;&nbsp;animation: string;<br>
+                                    &nbsp;&nbsp;duration?: number;<br>
+                                    &nbsp;&nbsp;easing?: string;<br>
+                                    }
+                                </code>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">VelocityFX</h4>
+                    <p class="text-gray-400">Professional animation framework for modern web applications.</p>
+                </div>
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">Resources</h4>
+                    <ul class="space-y-2">
+                        <li><a href="/docs.html" class="text-gray-400 hover:text-white">Documentation</a></li>
+                        <li><a href="/examples.html" class="text-gray-400 hover:text-white">Examples</a></li>
+                        <li><a href="/api.html" class="text-gray-400 hover:text-white">API Reference</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">Community</h4>
+                    <ul class="space-y-2">
+                        <li><a href="https://github.com/velocityfx/velocityfx" class="text-gray-400 hover:text-white">GitHub</a></li>
+                        <li><a href="https://discord.gg/velocityfx" class="text-gray-400 hover:text-white">Discord</a></li>
+                        <li><a href="https://twitter.com/velocityfx" class="text-gray-400 hover:text-white">Twitter</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">Legal</h4>
+                    <ul class="space-y-2">
+                        <li><a href="/privacy.html" class="text-gray-400 hover:text-white">Privacy Policy</a></li>
+                        <li><a href="/terms.html" class="text-gray-400 hover:text-white">Terms of Service</a></li>
+                        <li><a href="/license.html" class="text-gray-400 hover:text-white">License</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="mt-8 pt-8 border-t border-gray-800 text-center text-gray-400">
+                <p>&copy; 2023 VelocityFX. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/velocityfx@latest/dist/velocityfx.min.js"></script>
+    <script src="./js/website.js"></script>
+    <script>
+        // Initialize VelocityFX
+        const vfx = new VelocityFX({
+            observeScroll: true,
+            defaultDuration: 400,
+            defaultEasing: 'ease-out'
+        });
+    </script>
+</body>
+</html> 

@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Examples - VelocityFX</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@3.3.2/dist/tailwind.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/velocityfx@latest/dist/velocityfx.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="./styles/website.css">
+    <link rel="icon" type="image/svg+xml" href="./assets/logo.svg">
+    <link rel="preconnect" href="https://cdn.jsdelivr.net">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <meta name="description" content="Interactive examples and demos of VelocityFX animations - see the framework in action">
+    <meta name="keywords" content="VelocityFX, animation examples, web animations, demos">
+    <meta property="og:title" content="Examples - VelocityFX">
+    <meta property="og:description" content="Interactive examples and demos of VelocityFX animations - see the framework in action">
+    <meta property="og:image" content="https://velocityfx.dev/og-image.png">
+    <meta property="og:url" content="https://velocityfx.dev/examples">
+</head>
+<body class="bg-gray-50">
+    <!-- Navigation -->
+    <nav class="fixed w-full bg-white shadow-sm z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16">
+                <div class="flex items-center">
+                    <a href="/" class="flex items-center space-x-2">
+                        <img src="./assets/logo.svg" alt="VelocityFX Logo" class="h-8 w-8 anx-spin">
+                        <span class="text-xl font-bold text-gray-900">VelocityFX</span>
+                    </a>
+                </div>
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="/#features" class="anx-link-nav text-gray-600 hover:text-gray-900">Features</a>
+                    <a href="/examples.html" class="anx-link-nav text-indigo-600">Examples</a>
+                    <a href="/docs.html" class="anx-link-nav text-gray-600 hover:text-gray-900">Documentation</a>
+                    <a href="https://github.com/velocityfx/velocityfx" 
+                       class="anx-btn-primary px-4 py-2 rounded-lg text-white bg-indigo-600 hover:bg-indigo-700">
+                        GitHub
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Examples Header -->
+    <section class="pt-32 pb-12 bg-gradient-to-r from-indigo-600 to-purple-600">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center">
+                <h1 class="text-4xl font-bold text-white mb-4 anx-fade-down">
+                    Interactive Examples
+                </h1>
+                <p class="text-xl text-indigo-100 anx-fade-up anx-delay-200">
+                    Explore all the animations and effects available in VelocityFX
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Examples Content -->
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+        <!-- Entry Animations -->
+        <section class="mb-16">
+            <h2 class="text-3xl font-bold text-gray-900 mb-8 text-center">Entry Animations</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6" anx-sequence>
+                <div class="bg-white p-6 rounded-lg shadow-sm anx-fade-in">
+                    <h3 class="text-xl font-semibold mb-2">Fade In</h3>
+                    <p class="text-gray-600">Simple fade in animation</p>
+                    <code class="block mt-4 text-sm bg-gray-100 p-2 rounded">.anx-fade-in</code>
+                </div>
+
+                <div class="bg-white p-6 rounded-lg shadow-sm anx-slide-up">
+                    <h3 class="text-xl font-semibold mb-2">Slide Up</h3>
+                    <p class="text-gray-600">Slides up while fading in</p>
+                    <code class="block mt-4 text-sm bg-gray-100 p-2 rounded">.anx-slide-up</code>
+                </div>
+
+                <div class="bg-white p-6 rounded-lg shadow-sm anx-zoom-in">
+                    <h3 class="text-xl font-semibold mb-2">Zoom In</h3>
+                    <p class="text-gray-600">Zooms in while fading in</p>
+                    <code class="block mt-4 text-sm bg-gray-100 p-2 rounded">.anx-zoom-in</code>
+                </div>
+            </div>
+        </section>
+
+        <!-- Hover Animations -->
+        <section class="mb-16">
+            <h2 class="text-3xl font-bold text-gray-900 mb-8 text-center">Hover Animations</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div class="bg-white p-6 rounded-lg shadow-sm anx-hover-scale">
+                    <h3 class="text-xl font-semibold mb-2">Scale</h3>
+                    <p class="text-gray-600">Scales up on hover</p>
+                    <code class="block mt-4 text-sm bg-gray-100 p-2 rounded">.anx-hover-scale</code>
+                </div>
+
+                <div class="bg-white p-6 rounded-lg shadow-sm anx-hover-lift">
+                    <h3 class="text-xl font-semibold mb-2">Lift</h3>
+                    <p class="text-gray-600">Lifts up on hover</p>
+                    <code class="block mt-4 text-sm bg-gray-100 p-2 rounded">.anx-hover-lift</code>
+                </div>
+
+                <div class="bg-white p-6 rounded-lg shadow-sm anx-hover-glow">
+                    <h3 class="text-xl font-semibold mb-2">Glow</h3>
+                    <p class="text-gray-600">Adds a glow effect on hover</p>
+                    <code class="block mt-4 text-sm bg-gray-100 p-2 rounded">.anx-hover-glow</code>
+                </div>
+            </div>
+        </section>
+
+        <!-- Button Animations -->
+        <section class="mb-16">
+            <h2 class="text-3xl font-bold text-gray-900 mb-8 text-center">Button Animations</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <button class="anx-btn-primary w-full p-4 rounded-lg bg-indigo-600 text-white">
+                    Primary Button
+                </button>
+
+                <button class="anx-btn-secondary w-full p-4 rounded-lg bg-gray-800 text-white">
+                    Secondary Button
+                </button>
+
+                <button class="anx-btn-ghost w-full p-4 rounded-lg border-2 border-gray-800 text-gray-800">
+                    Ghost Button
+                </button>
+            </div>
+        </section>
+
+        <!-- Scroll Animations -->
+        <section class="mb-16">
+            <h2 class="text-3xl font-bold text-gray-900 mb-8 text-center">Scroll Animations</h2>
+            <div class="space-y-6">
+                <div class="bg-white p-6 rounded-lg shadow-sm" data-anx-scroll="fade-up">
+                    <h3 class="text-xl font-semibold mb-2">Scroll Fade Up</h3>
+                    <p class="text-gray-600">Fades in and slides up when scrolled into view</p>
+                    <code class="block mt-4 text-sm bg-gray-100 p-2 rounded">data-anx-scroll="fade-up"</code>
+                </div>
+
+                <div class="bg-white p-6 rounded-lg shadow-sm" data-anx-scroll="fade-in">
+                    <h3 class="text-xl font-semibold mb-2">Scroll Fade In</h3>
+                    <p class="text-gray-600">Simply fades in when scrolled into view</p>
+                    <code class="block mt-4 text-sm bg-gray-100 p-2 rounded">data-anx-scroll="fade-in"</code>
+                </div>
+
+                <div class="bg-white p-6 rounded-lg shadow-sm" data-anx-scroll="zoom-in">
+                    <h3 class="text-xl font-semibold mb-2">Scroll Zoom In</h3>
+                    <p class="text-gray-600">Zooms in when scrolled into view</p>
+                    <code class="block mt-4 text-sm bg-gray-100 p-2 rounded">data-anx-scroll="zoom-in"</code>
+                </div>
+            </div>
+        </section>
+
+        <!-- Loading Animations -->
+        <section class="mb-16">
+            <h2 class="text-3xl font-bold text-gray-900 mb-8 text-center">Loading Animations</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div class="bg-white p-6 rounded-lg shadow-sm flex items-center justify-center">
+                    <div class="anx-loading-spinner text-indigo-600">
+                        <svg class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" 
+                                  d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"/>
+                        </svg>
+                    </div>
+                </div>
+
+                <div class="bg-white p-6 rounded-lg shadow-sm">
+                    <div class="anx-loading-skeleton h-4 w-3/4 mb-2"></div>
+                    <div class="anx-loading-skeleton h-4 w-1/2"></div>
+                </div>
+
+                <div class="bg-white p-6 rounded-lg shadow-sm flex items-center justify-center">
+                    <div class="anx-loading-pulse text-indigo-600">Processing...</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Interactive Demo -->
+        <section class="mb-16">
+            <h2 class="text-3xl font-bold text-gray-900 mb-8 text-center">Interactive Demo</h2>
+            <div class="bg-white p-6 rounded-lg shadow-sm">
+                <div class="mb-6">
+                    <label for="demo-duration" class="block text-sm font-medium text-gray-700">Animation Duration</label>
+                    <input type="range" id="demo-duration" min="200" max="2000" value="400" class="w-full">
+                </div>
+
+                <div class="mb-6">
+                    <label for="demo-easing" class="block text-sm font-medium text-gray-700">Easing Function</label>
+                    <select id="demo-easing" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm">
+                        <option value="ease-out">ease-out</option>
+                        <option value="ease-in">ease-in</option>
+                        <option value="ease-in-out">ease-in-out</option>
+                        <option value="linear">linear</option>
+                    </select>
+                </div>
+
+                <div id="demo-target" class="p-6 bg-indigo-600 text-white rounded-lg text-center anx-fade-in">
+                    Click to animate me!
+                </div>
+            </div>
+        </section>
+
+        <!-- Sequence Animations -->
+        <section class="mb-16">
+            <h2 class="text-3xl font-bold text-gray-900 mb-8 text-center">Sequence Animations</h2>
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-4" anx-sequence anx-sequence-delay="200">
+                <div class="bg-white p-6 rounded-lg shadow-sm" anx-animate="fade-up">
+                    <h3 class="font-semibold">First</h3>
+                </div>
+                <div class="bg-white p-6 rounded-lg shadow-sm" anx-animate="fade-up">
+                    <h3 class="font-semibold">Second</h3>
+                </div>
+                <div class="bg-white p-6 rounded-lg shadow-sm" anx-animate="fade-up">
+                    <h3 class="font-semibold">Third</h3>
+                </div>
+                <div class="bg-white p-6 rounded-lg shadow-sm" anx-animate="fade-up">
+                    <h3 class="font-semibold">Fourth</h3>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">VelocityFX</h4>
+                    <p class="text-gray-400">Professional animation framework for modern web applications.</p>
+                </div>
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">Resources</h4>
+                    <ul class="space-y-2">
+                        <li><a href="/docs.html" class="text-gray-400 hover:text-white">Documentation</a></li>
+                        <li><a href="/examples.html" class="text-gray-400 hover:text-white">Examples</a></li>
+                        <li><a href="/api.html" class="text-gray-400 hover:text-white">API Reference</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">Community</h4>
+                    <ul class="space-y-2">
+                        <li><a href="https://github.com/velocityfx/velocityfx" class="text-gray-400 hover:text-white">GitHub</a></li>
+                        <li><a href="https://discord.gg/velocityfx" class="text-gray-400 hover:text-white">Discord</a></li>
+                        <li><a href="https://twitter.com/velocityfx" class="text-gray-400 hover:text-white">Twitter</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">Legal</h4>
+                    <ul class="space-y-2">
+                        <li><a href="/privacy.html" class="text-gray-400 hover:text-white">Privacy Policy</a></li>
+                        <li><a href="/terms.html" class="text-gray-400 hover:text-white">Terms of Service</a></li>
+                        <li><a href="/license.html" class="text-gray-400 hover:text-white">License</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="mt-8 pt-8 border-t border-gray-800 text-center text-gray-400">
+                <p>&copy; 2023 VelocityFX. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/velocityfx@latest/dist/velocityfx.min.js"></script>
+    <script src="./js/website.js"></script>
+    <script>
+        // Initialize VelocityFX
+        const vfx = new VelocityFX({
+            observeScroll: true,
+            defaultDuration: 400,
+            defaultEasing: 'ease-out'
+        });
+
+        // Interactive demo
+        const demoTarget = document.getElementById('demo-target');
+        let isAnimating = false;
+
+        demoTarget.addEventListener('click', () => {
+            if (isAnimating) return;
+            isAnimating = true;
+
+            const duration = document.getElementById('demo-duration').value;
+            const easing = document.getElementById('demo-easing').value;
+
+            demoTarget.style.setProperty('--anx-duration', `${duration}ms`);
+            demoTarget.style.setProperty('--anx-easing', easing);
+
+            demoTarget.classList.remove('anx-fade-in');
+            void demoTarget.offsetWidth; // Trigger reflow
+            demoTarget.classList.add('anx-fade-in');
+
+            setTimeout(() => {
+                isAnimating = false;
+            }, duration);
+        });
+    </script>
+</body>
+</html> 

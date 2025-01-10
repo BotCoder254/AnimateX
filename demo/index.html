@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AnimateX - Professional Animation Framework</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="../dist/animatex.css">
+    <style>
+        .section {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem;
+        }
+    </style>
+</head>
+<body class="bg-gray-100">
+    <!-- Hero Section -->
+    <div class="section bg-gradient-to-r from-indigo-600 to-purple-600 text-white">
+        <div class="text-center">
+            <h1 class="text-6xl font-bold mb-4" anx-animate="fade-down">AnimateX</h1>
+            <p class="text-xl mb-8" anx-animate="fade-up" anx-sequence-delay="200">Professional Animation Framework</p>
+            <div anx-sequence anx-sequence-delay="150">
+                <button class="bg-white text-indigo-600 px-6 py-2 rounded-full font-semibold mr-4" 
+                        anx-animate="fade-up" 
+                        anx-hover="hover-scale hover-glow"
+                        anx-click="click-pulse">
+                    Get Started
+                </button>
+                <button class="border-2 border-white px-6 py-2 rounded-full font-semibold" 
+                        anx-animate="fade-up" 
+                        anx-hover="hover-scale"
+                        anx-click="click-pulse">
+                    Documentation
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Entry/Exit Animations -->
+    <div class="section bg-white">
+        <div class="max-w-6xl mx-auto">
+            <h2 class="text-4xl font-bold text-center mb-12" anx-animate="fade-up">Entry & Exit Animations</h2>
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8" anx-sequence anx-sequence-delay="200">
+                <div class="p-6 bg-gray-50 rounded-lg text-center" anx-animate="fade-in">
+                    <h3 class="text-xl font-semibold mb-2">Fade In</h3>
+                    <p class="text-gray-600">Simple fade animation</p>
+                </div>
+                <div class="p-6 bg-gray-50 rounded-lg text-center" anx-animate="slide-up">
+                    <h3 class="text-xl font-semibold mb-2">Slide Up</h3>
+                    <p class="text-gray-600">Smooth slide animation</p>
+                </div>
+                <div class="p-6 bg-gray-50 rounded-lg text-center" anx-animate="zoom-in">
+                    <h3 class="text-xl font-semibold mb-2">Zoom In</h3>
+                    <p class="text-gray-600">Scale animation</p>
+                </div>
+                <div class="p-6 bg-gray-50 rounded-lg text-center" anx-animate="spin-fade">
+                    <h3 class="text-xl font-semibold mb-2">Spin Fade</h3>
+                    <p class="text-gray-600">Complex animation</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Attention Grabbers -->
+    <div class="section bg-gray-100">
+        <div class="max-w-4xl mx-auto">
+            <h2 class="text-4xl font-bold text-center mb-12" anx-animate="fade-up">Attention Grabbers</h2>
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-6" anx-sequence anx-sequence-stagger="random">
+                <button class="p-4 bg-indigo-500 text-white rounded-lg" anx-hover="bounce">
+                    Bounce
+                </button>
+                <button class="p-4 bg-purple-500 text-white rounded-lg" anx-hover="wiggle">
+                    Wiggle
+                </button>
+                <button class="p-4 bg-pink-500 text-white rounded-lg" anx-hover="heartbeat">
+                    Heartbeat
+                </button>
+                <button class="p-4 bg-red-500 text-white rounded-lg" anx-hover="shake">
+                    Shake
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- State Animations -->
+    <div class="section bg-white">
+        <div class="max-w-4xl mx-auto">
+            <h2 class="text-4xl font-bold text-center mb-12" anx-animate="fade-up">State Animations</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <input type="text" 
+                       placeholder="Focus me!" 
+                       class="p-4 border rounded-lg"
+                       anx-state="focus:hover-glow">
+                
+                <button class="p-4 bg-green-500 text-white rounded-lg"
+                        anx-state="active:click-pulse">
+                    Click & Hold Me
+                </button>
+
+                <div class="p-4 bg-blue-500 text-white rounded-lg cursor-pointer"
+                     anx-hover="hover-scale"
+                     anx-click="click-pulse">
+                    Hover & Click Me
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Complex Animations -->
+    <div class="section bg-gradient-to-r from-pink-500 to-purple-500 text-white">
+        <div class="max-w-4xl mx-auto">
+            <h2 class="text-4xl font-bold text-center mb-12" anx-animate="zoom-rotate">Complex Animations</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div class="relative p-8 bg-white bg-opacity-20 rounded-lg backdrop-filter backdrop-blur-lg"
+                     anx-animate="spin-fade"
+                     anx-hover="hover-scale">
+                    <h3 class="text-2xl font-bold mb-4">Spin Fade</h3>
+                    <p>Combines rotation and fade effects</p>
+                </div>
+                <div class="relative p-8 bg-white bg-opacity-20 rounded-lg backdrop-filter backdrop-blur-lg"
+                     anx-animate="zoom-rotate"
+                     anx-hover="hover-scale">
+                    <h3 class="text-2xl font-bold mb-4">Zoom Rotate</h3>
+                    <p>Combines scale and rotation</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Parallax Section -->
+    <div class="section bg-gradient-to-r from-blue-400 to-teal-500 text-white overflow-hidden">
+        <div class="relative w-full max-w-4xl">
+            <div class="absolute inset-0 opacity-25">
+                <div class="absolute top-0 left-0 w-64 h-64 bg-white rounded-full" 
+                     anx-parallax="0.2" 
+                     style="transform: translate(-50%, -50%)"></div>
+                <div class="absolute top-full left-full w-96 h-96 bg-white rounded-full" 
+                     anx-parallax="0.4" 
+                     style="transform: translate(-50%, -50%)"></div>
+            </div>
+            <div class="relative text-center">
+                <h2 class="text-4xl font-bold mb-6" anx-animate="fade-up">Smooth Parallax</h2>
+                <p class="text-xl" anx-animate="fade-up">Create depth with easy parallax effects</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Customization Options -->
+    <div class="section bg-white">
+        <div class="max-w-6xl mx-auto">
+            <h2 class="text-4xl font-bold text-center mb-12" anx-animate="fade-up">Customization Options</h2>
+            
+            <!-- Duration Examples -->
+            <div class="mb-16">
+                <h3 class="text-2xl font-semibold mb-6 text-center">Duration Control</h3>
+                <div class="grid grid-cols-1 md:grid-cols-4 gap-4">
+                    <div class="p-4 bg-indigo-500 text-white rounded-lg text-center anx-duration-300"
+                         anx-animate="fade-in">
+                        Fast (300ms)
+                    </div>
+                    <div class="p-4 bg-indigo-500 text-white rounded-lg text-center anx-duration-500"
+                         anx-animate="fade-in">
+                        Medium (500ms)
+                    </div>
+                    <div class="p-4 bg-indigo-500 text-white rounded-lg text-center anx-duration-1000"
+                         anx-animate="fade-in">
+                        Slow (1000ms)
+                    </div>
+                    <div class="p-4 bg-indigo-500 text-white rounded-lg text-center anx-duration-2000"
+                         anx-animate="fade-in">
+                        Very Slow (2000ms)
+                    </div>
+                </div>
+            </div>
+
+            <!-- Easing Examples -->
+            <div class="mb-16">
+                <h3 class="text-2xl font-semibold mb-6 text-center">Easing Functions</h3>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                    <div class="p-4 bg-purple-500 text-white rounded-lg text-center anx-ease-bounce"
+                         anx-animate="slide-up">
+                        Bounce Easing
+                    </div>
+                    <div class="p-4 bg-purple-500 text-white rounded-lg text-center anx-ease-elastic"
+                         anx-animate="slide-up">
+                        Elastic Easing
+                    </div>
+                    <div class="p-4 bg-purple-500 text-white rounded-lg text-center anx-ease-spring"
+                         anx-animate="slide-up">
+                        Spring Easing
+                    </div>
+                    
+                </div>
+            </div>
+
+            <!-- Iteration Examples -->
+            <div class="mb-16">
+                <h3 class="text-2xl font-semibold mb-6 text-center">Iteration Control</h3>
+                <div class="grid grid-cols-1 md:grid-cols-4 gap-4">
+                    <div class="p-4 bg-pink-500 text-white rounded-lg text-center anx-iteration-2"
+                         anx-animate="pulse">
+                        Twice
+                    </div>
+                    <div class="p-4 bg-pink-500 text-white rounded-lg text-center anx-iteration-3"
+                         anx-animate="pulse">
+                        Thrice
+                    </div>
+                    <div class="p-4 bg-pink-500 text-white rounded-lg text-center anx-infinite"
+                         anx-animate="pulse">
+                        Infinite
+                    </div>
+                    <div class="p-4 bg-pink-500 text-white rounded-lg text-center anx-alternate anx-infinite"
+                         anx-animate="pulse">
+                        Alternate Infinite
+                    </div>
+                </div>
+            </div>
+
+            <!-- Delay Examples -->
+            <div class="mb-16">
+                <h3 class="text-2xl font-semibold mb-6 text-center">Delay Sequences</h3>
+                <div class="grid grid-cols-1 md:grid-cols-5 gap-4">
+                    <div class="p-4 bg-blue-500 text-white rounded-lg text-center anx-delay-0"
+                         anx-animate="fade-up">
+                        No Delay
+                    </div>
+                    <div class="p-4 bg-blue-500 text-white rounded-lg text-center anx-delay-200"
+                         anx-animate="fade-up">
+                        200ms Delay
+                    </div>
+                    <div class="p-4 bg-blue-500 text-white rounded-lg text-center anx-delay-400"
+                         anx-animate="fade-up">
+                        400ms Delay
+                    </div>
+                    <div class="p-4 bg-blue-500 text-white rounded-lg text-center anx-delay-600"
+                         anx-animate="fade-up">
+                        600ms Delay
+                    </div>
+                    <div class="p-4 bg-blue-500 text-white rounded-lg text-center anx-delay-800"
+                         anx-animate="fade-up">
+                        800ms Delay
+                    </div>
+                </div>
+            </div>
+
+            <!-- Performance Options -->
+            <div class="mb-16">
+                <h3 class="text-2xl font-semibold mb-6 text-center">Performance Optimization</h3>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                    <div class="p-4 bg-green-500 text-white rounded-lg text-center anx-gpu"
+                         anx-animate="zoom-rotate">
+                        GPU Accelerated
+                    </div>
+                    <div class="p-4 bg-green-500 text-white rounded-lg text-center anx-will-change-transform"
+                         anx-animate="slide-up">
+                        Will Change Transform
+                    </div>
+                    <div class="p-4 bg-green-500 text-white rounded-lg text-center anx-motion-safe"
+                         anx-animate="fade-in">
+                        Motion Safe
+                    </div>
+                </div>
+            </div>
+
+            <!-- Combined Examples -->
+            <div>
+                <h3 class="text-2xl font-semibold mb-6 text-center">Combined Effects</h3>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div class="p-6 bg-gradient-to-r from-indigo-500 to-purple-500 text-white rounded-lg text-center
+                              anx-duration-1000 anx-ease-spring anx-gpu"
+                         anx-animate="zoom-rotate"
+                         anx-hover="hover-scale">
+                        <h4 class="text-xl mb-2">Smooth Spring Effect</h4>
+                        <p>Combined duration, easing, and GPU acceleration</p>
+                    </div>
+                    <div class="p-6 bg-gradient-to-r from-pink-500 to-red-500 text-white rounded-lg text-center
+                              anx-duration-500 anx-ease-bounce anx-infinite anx-alternate"
+                         anx-animate="pulse">
+                        <h4 class="text-xl mb-2">Infinite Bounce</h4>
+                        <p>Combined duration, bounce easing, and infinite alternate</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="../dist/animatex.js"></script>
+</body>
+</html> 
